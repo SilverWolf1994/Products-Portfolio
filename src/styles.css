@@ -1,3 +1,4 @@
+/* Animation */
 :root {
     --animate-duration: 1s;
     --animate-delay: 1s;
@@ -27,6 +28,7 @@
         opacity: 0;
     }
 }
+/* /Animation */
 
 /* Fading entrances  */
 @-webkit-keyframes fadeIn {
@@ -52,3 +54,9 @@
     animation-name: fadeIn;
 }
 /* Fading exits */
+
+/* Loading */
+svg path, svg rect{
+  fill: black;
+}
+/* /Loading */

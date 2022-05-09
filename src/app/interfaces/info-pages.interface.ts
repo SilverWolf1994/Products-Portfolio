@@ -1,4 +1,4 @@
-export interface InfoPages {
+export interface InfoPagesInterface {
     titulo?: string;
     email?: string,
     nombre_corto?: string,
