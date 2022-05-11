@@ -13,16 +13,16 @@ export class ProductosService {
   
   constructor(private http: HttpClient) {
     this.loadProductos();
-    this.loadDataProductos(this.productos.id);
+    this.loadDataProducto(this.productos.id);
   }
 
   private loadProductos() {
-    return new Promise( (resolve, reject) => {
+    return new Promise<void>( (resolve, reject) => {
       this.http.get('https://angular-portafolio-71333-default-rtdb.firebaseio.com/productos_idx.json')
       .subscribe( (resp: ProductoInterface) => {
         this.loading = false;
         this.productos = resp;
-        resolve;
+        resolve();
       });
     });
   }
@@ -36,7 +36,7 @@ export class ProductosService {
     });
   }
 
-  public loadDataProductos(id: string) {
+  public loadDataProducto(id: string) {
     return this.http.get(`https://angular-portafolio-71333-default-rtdb.firebaseio.com/productos/${id}.json`);
   }
 

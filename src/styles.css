@@ -1,3 +1,20 @@
+/* Loading */
+.loading{
+    text-align: center;
+}
+
+svg path, svg rect {
+    fill: black;
+}
+/* /Loading */
+
+/* Footer */
+footer {
+    width: 95vw !important;
+    bottom: 0 !important;
+}
+/* /Footer */
+
 /* Animation */
 :root {
     --animate-duration: 1s;
@@ -54,9 +71,3 @@
     animation-name: fadeIn;
 }
 /* Fading exits */
-
-/* Loading */
-svg path, svg rect{
-  fill: black;
-}
-/* /Loading */

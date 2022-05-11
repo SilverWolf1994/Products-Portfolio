@@ -8,7 +8,7 @@ import { InfoPagesInterface } from '../interfaces/info-pages.interface';
 export class InfoPagesService {
 
   info: InfoPagesInterface = {};
-  loaded: boolean = false;
+  loading: boolean = true;
   team: any = [];
 
   constructor(private http: HttpClient) {
@@ -18,7 +18,6 @@ export class InfoPagesService {
 
   private loadInfo() {
     this.http.get('assets/data/data-pages.json').subscribe( (resp: InfoPagesInterface) => {
-      this.loaded = true;
       this.info = resp;
     });
   }
@@ -26,8 +25,8 @@ export class InfoPagesService {
   private loadTeam() {
     this.http.get('https://angular-portafolio-71333-default-rtdb.firebaseio.com/equipo.json')
     .subscribe( (resp: InfoPagesInterface) => {
-      this.loaded = true;
       this.team = resp;
+      this.loading = false;
     });
   }
 }
