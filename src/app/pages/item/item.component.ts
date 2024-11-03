@@ -11,6 +11,7 @@ import { ProductoData } from '../../interfaces/producto-data.interface';
 export class ItemComponent implements OnInit {
 
   id?: string;
+  numero?: string;
   producto?: ProductoData;
 
   constructor(private route: ActivatedRoute, public productosService: ProductosService) { }
@@ -21,8 +22,16 @@ export class ItemComponent implements OnInit {
       .subscribe( (resp: ProductoData) => {
         this.id = params['id'];
         this.producto = resp;
+        this.numero = this.obtenerNumeroProducto(this.id!);
       });
     });
+
+
+  }
+
+  obtenerNumeroProducto(id: string) {
+    var arrayId = id.split('-');
+    return arrayId[1];
   }
 
 }
